@@ -6,7 +6,8 @@ class Television:
 
   
   def __init__(self):
-    pass
+    self.__muted = False
+    self.__volume = Television.MIN_VOLUME
 
   def power(self):
     pass
@@ -18,15 +19,33 @@ class Television:
     pass
 
   def channel_down(self):
-    pass
+    if self.__status:
+      if self.__channel > Television.MIN_CHANNEL:
+        self.__channel -= 1
+      else:
+        self.__channel = Television.MAX_CHANNEL
 
   def volume_up(self):
-    pass
+    if self.__status:
+      self.__muted = False
+      if self.__volume < Television.MAX_VOLUME:
+        self.__volume += 1
 
   def volume_down(self):
     pass
   
   def __str__(self):
-    pass
+    if self.__muted:
+      return f'Volume = {Television.MIN_VOLUME}'
+    else:
+      return f'xxx'
 
-  
+
+# Channel Logic
+#####################################################
+# Default - NFL - Cartoon Network - Discovery Channel
+#    0       1           2                  3
+
+# Volume Logic
+######################
+#    0       1       2
