@@ -5,7 +5,7 @@ class Television:
   MAX_CHANNEL = 3
 
   
-  def __init__(self):
+  def __init__(self) -> None:
     self.__muted = False
     self.__volume = Television.MIN_VOLUME
 
@@ -34,7 +34,7 @@ class Television:
   def volume_down(self):
     pass
   
-  def __str__(self):
+  def __str__(self) -> str:
     if self.__muted:
       return f'Volume = {Television.MIN_VOLUME}'
     else:
